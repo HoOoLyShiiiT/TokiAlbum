@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+/* Warm & Dark Glassmorphism Styling */
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(243, 244, 246, 0.8);
+}
+
+.glass-card-light {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(243, 244, 246, 0.9);
+  box-shadow: 0 10px 30px -10px rgba(225, 29, 72, 0.05);
+}
+
+.glow-warm {
+  box-shadow: 0 20px 40px -15px rgba(244, 63, 94, 0.15);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fdf8f6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Welcome Splash Animations */
+@keyframes splashZoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes goldShimmer {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(200%) rotate(25deg);
+  }
+}
+
+@keyframes floatBokeh {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-18px) scale(1.15);
+    opacity: 0.7;
+  }
+}
+
+@keyframes progressSweep {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.animate-splashZoom {
+  animation: splashZoom 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-goldShimmer {
+  animation: goldShimmer 3s ease-in-out infinite;
+}
+
+.animate-floatBokeh1 {
+  animation: floatBokeh 4s ease-in-out infinite;
+}
+
+.animate-floatBokeh2 {
+  animation: floatBokeh 6s ease-in-out infinite 1.5s;
+}
+
+.animate-floatBokeh3 {
+  animation: floatBokeh 5s ease-in-out infinite 3s;
+}
+
+/* Cherry Blossom Petal Falling Animations */
+@keyframes cherryPetalFall {
+  0% {
+    top: -12%;
+    opacity: 0;
+    transform: translateX(0px) rotate(0deg) scale(0.7);
+  }
+  15% {
+    opacity: 0.95;
+  }
+  85% {
+    opacity: 0.9;
+  }
+  100% {
+    top: 112%;
+    opacity: 0;
+    transform: translateX(var(--drift-x, 70px)) rotate(var(--rot, 360deg)) scale(1.15);
+  }
+}
+
+.animate-cherryPetal {
+  animation: cherryPetalFall linear infinite;
+  will-change: transform, top, opacity;
+}
+
+
