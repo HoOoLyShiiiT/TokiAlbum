@@ -13,7 +13,7 @@ FROM node:20-alpine AS runner
 WORKDIR /app
 
 # Install native dependencies required by sharp / SQLite
-RUN apk add --no-commission --no-cache python3 make g++ sqlite
+RUN apk add --no-cache python3 make g++ sqlite
 
 # Build backend
 COPY backend/package*.json ./backend/
